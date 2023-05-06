@@ -1,14 +1,15 @@
 const express = require('express');
-const userRoute = require('./routes/users');
+const userRoute = require('./routers/users');
 const bodyParser = require('body-parser');
-const postsRoute = require('./routes/posts');
+const postsRoute = require('./routers/posts');
 
 const app = express();
 const port = 8000;
 
 app.use(express.json());
 app.use(bodyParser.json());
-app.use("/users", userRoute)
+
+app.use("/users", userRoute);
 app.use("/posts", postsRoute)
 app.get("/", function (req, res) {  
     res.json({"message": "welcome just confirm"})
